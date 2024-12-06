@@ -1,11 +1,11 @@
 # Uncomment the required imports before adding the code
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+#from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404, render, redirect
+#from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth import logout
-from django.contrib import messages
-from datetime import datetime
+#from django.contrib import messages
+#from datetime import datetime
 
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
@@ -18,6 +18,7 @@ from .restapis import get_request, post_review, analyze_review_sentiments
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
 
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
@@ -34,6 +35,7 @@ def login_user(request):
         login(request, user)
         data = {"userName":  username, "status":  "Authenticated"}
     return JsonResponse(data)
+
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
@@ -131,7 +133,7 @@ def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            post_review(data)
             return JsonResponse({"status": 200})
         except:
             return JsonResponse({"status": 401,
