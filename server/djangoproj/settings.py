@@ -28,9 +28,11 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ # pylint: disable-next=line-too-long
 ALLOWED_HOSTS = ['localhost',
                  'https://bobconroymba-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'
                 ]
+ # pylint: disable-next=line-too-long
 CSRF_TRUSTED_ORIGINS = [
                         'https://bobconroymba-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'
                        ]
